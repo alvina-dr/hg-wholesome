@@ -4,13 +4,13 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [ReadOnly]
-    public Collectable CurrentInteractable;
+    public Interactable CurrentInteractable;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Collectable collectable))
+        if (other.TryGetComponent(out Interactable interactable))
         {
-            CurrentInteractable = collectable;
+            CurrentInteractable = interactable;
             GameManager.Instance.UIManager.CallToACtionShowAnimation.Show();
             GameManager.Instance.UIManager.CallToActionFollow.SetTransformToFollow(CurrentInteractable.transform);
         }
@@ -18,9 +18,9 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out Collectable collectable))
+        if (other.TryGetComponent(out Interactable interactable))
         {
-            if (CurrentInteractable == collectable)
+            if (CurrentInteractable == interactable)
             {
                 CurrentInteractable = null;
                 GameManager.Instance.UIManager.CallToACtionShowAnimation.Hide(() =>
@@ -35,7 +35,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (CurrentInteractable != null)
         {
-            CurrentInteractable.CollectItem();
+            CurrentInteractable.Interact();
         }
     }
 }

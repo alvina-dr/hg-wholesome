@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour
+public class Collectable : Interactable
 {
     [SerializeField] private ItemData _itemCollectable;
     [SerializeField] private List<ItemSpot> _spotList = new();
@@ -19,13 +19,16 @@ public class Collectable : MonoBehaviour
         StartCoroutine(WaitSpawnItem());
     }
 
-    public void CollectItem()
+    public override void Interact()
     {
+        base.Interact();
+
         ItemSpot itemSpot = _spotList.Find(x => x.isFull);
 
         if (itemSpot != null)
         {
             itemSpot.isFull = false;
+            GameManager.Instance.UIManager.TextPopperManager.PopText("+1", Camera.main.WorldToScreenPoint(itemSpot.transform.position));
             Sequence pop = DOTween.Sequence();
             pop.Append(itemSpot.transform.DOScale(1.3f, .1f));
             pop.Append(itemSpot.transform.DOScale(0f, .05f));

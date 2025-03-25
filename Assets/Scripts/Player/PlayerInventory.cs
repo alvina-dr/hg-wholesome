@@ -6,27 +6,32 @@ using static PlayerInventory;
 public class PlayerInventory : MonoBehaviour
 {
     [ReadOnly]
-    public List<ItemEntry> ItemDataList = new();
+    public List<ItemEntry> ItemEntryList = new();
 
     public void AddItem(ItemEntry itemEntry)
     {
-        ItemEntry _inventoryEntry = ItemDataList.Find(x => x.Item == itemEntry.Item);
+        ItemEntry _inventoryEntry = ItemEntryList.Find(x => x.Item == itemEntry.Item);
         if (_inventoryEntry != null) 
         {
             _inventoryEntry.Number += itemEntry.Number;
         }
         else
         {
-            ItemDataList.Add(itemEntry);
+            ItemEntryList.Add(itemEntry);
         }
     }
 
     public void RemoveItem(ItemEntry itemEntry)
     {
-        ItemEntry _inventoryEntry = ItemDataList.Find(x => x.Item == itemEntry.Item);
+        ItemEntry _inventoryEntry = ItemEntryList.Find(x => x.Item == itemEntry.Item);
         if (_inventoryEntry != null)
         {
             _inventoryEntry.Number -= itemEntry.Number;
+
+            if (_inventoryEntry.Number <= 0)
+            {
+                ItemEntryList.Remove(_inventoryEntry);
+            }
         }
         else
         {
@@ -36,7 +41,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool HasItem(ItemEntry itemEntry)
     {
-        ItemEntry _inventoryEntry = ItemDataList.Find(x => x.Item == itemEntry.Item);
+        ItemEntry _inventoryEntry = ItemEntryList.Find(x => x.Item == itemEntry.Item);
         if (_inventoryEntry != null)
         {
             return _inventoryEntry.Number >= itemEntry.Number;
