@@ -9,4 +9,9 @@ public class PlayerInputManager : MonoBehaviour
     {
         _player.PlayerMovement.Direction = new Vector3(callbackContext.Get<Vector2>().normalized.x, 0, callbackContext.Get<Vector2>().normalized.y);
     }
+
+    public void OnInteract(InputValue callbackContext)
+    {
+        _player.PlayerInteract.Interact();
+    }
 }

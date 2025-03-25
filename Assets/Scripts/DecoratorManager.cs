@@ -49,7 +49,7 @@ public class DecoratorManager : MonoBehaviour
         public float Frequency;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawCube(transform.position, MapSize);

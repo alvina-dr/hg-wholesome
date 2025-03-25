@@ -5,8 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Custom Components")]
-    public PlayerMovement PlayerMovement;
     public PlayerInputManager PlayerInputManager;
+    public PlayerMovement PlayerMovement;
+    public PlayerInteract PlayerInteract;
+    public PlayerInventory PlayerInventory;
 
     [Header("Components")]
     public CharacterController CharacterController;

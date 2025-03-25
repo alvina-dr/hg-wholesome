@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AttackZone
-  m_Shader: {fileID: -6465566751694194690, guid: bd9c04238ba4d9d4f8dc164936776f7a, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 024496d6e1c7264458ddb6e333657e64, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -57,6 +57,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Shades: 0.22
     m_Colors:
     - Vector2_6A93A1CF: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 0.90943396, g: 0.11496616, b: 0.32988122, a: 1}
