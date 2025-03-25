@@ -28,12 +28,13 @@ public class UI_SellMenu : MonoBehaviour
     {
         UpdateVisual();
         gameObject.SetActive(true);
-
+        GameManager.Instance.Player.CanMove = false;
     }
 
     public void Close()
     {
         gameObject.SetActive(false);
+        GameManager.Instance.Player.CanMove = true;
     }
 
     public void Sell()
@@ -44,9 +45,11 @@ public class UI_SellMenu : MonoBehaviour
 
         for (int i = 0; i < buttonToSellList.Count; i++)
         {
+            GameManager.Instance.Player.PlayerInventory.AddMoney(buttonToSellList[i].ItemEntry.Number * buttonToSellList[i].ItemEntry.Item.Price);
             GameManager.Instance.Player.PlayerInventory.RemoveItem(buttonToSellList[i].ItemEntry);
         }
 
         gameObject.SetActive(false);
+        GameManager.Instance.Player.CanMove = true;
     }
 }

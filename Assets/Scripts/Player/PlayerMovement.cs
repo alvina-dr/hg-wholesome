@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _player.CharacterController.Move(new Vector3(0, -9.81f, 0) * Time.deltaTime);
+
+        if (!_player.CanMove) return;
+
         _player.CharacterController.Move(Direction * _moveSpeed * Time.deltaTime);
 
         if (Direction != Vector3.zero)

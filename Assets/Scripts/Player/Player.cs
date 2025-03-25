@@ -16,12 +16,15 @@ public class Player : MonoBehaviour
     public List<MeshRenderer> MeshRendererList;
     public ParticleSystem LevelUpParticleSystemPrefab;
 
+    public bool CanMove = true;
+
     public void DamageFeedback()
     {
         for (int i = 0; i < MeshRendererList.Count; i++)
         {
             MeshRendererList[i].material = GameManager.Instance.DamageMaterial;
         }
+
         DOVirtual.DelayedCall(.1f, () =>
         {
             for (int i = 0; i < MeshRendererList.Count; i++)

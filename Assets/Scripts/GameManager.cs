@@ -24,4 +24,9 @@ public class GameManager : MonoBehaviour
     public Drop DropPrefab;
     public UIManager UIManager;
     public CinemachineShake CinemachineShake;
+
+    private void Start()
+    {
+        UIManager.MoneyText.SetTextValue("0", false);
+    }
 }

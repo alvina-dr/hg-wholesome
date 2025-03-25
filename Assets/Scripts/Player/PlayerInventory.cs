@@ -7,6 +7,7 @@ public class PlayerInventory : MonoBehaviour
 {
     [ReadOnly]
     public List<ItemEntry> ItemEntryList = new();
+    public int Money;
 
     public void AddItem(ItemEntry itemEntry)
     {
@@ -37,6 +38,18 @@ public class PlayerInventory : MonoBehaviour
         {
             Debug.LogError("trying to delete something the player does not have");
         }
+    }
+
+    public void AddMoney(int money)
+    {
+        Money += money; 
+        GameManager.Instance.UIManager.MoneyText.SetTextValue(Money.ToString());
+    }
+
+    public void RemoveMoney(int money)
+    {
+        Money -= money;
+        GameManager.Instance.UIManager.MoneyText.SetTextValue(Money.ToString());
     }
 
     public bool HasItem(ItemEntry itemEntry)
