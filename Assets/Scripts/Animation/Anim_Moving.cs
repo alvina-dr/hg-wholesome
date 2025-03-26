@@ -10,6 +10,11 @@ public class Anim_Moving : MonoBehaviour
 
     void Start()
     {
+        StartMovement();
+    }
+
+    public void StartMovement()
+    {
         transform.DOMove(transform.position + _direction, _duration).SetLoops(-1, _loopType).SetEase(_ease);
     }
 }

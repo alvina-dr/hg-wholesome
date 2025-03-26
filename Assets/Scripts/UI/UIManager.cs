@@ -7,4 +7,6 @@ public class UIManager : MonoBehaviour
     public UI_ShowSizeAnimation CallToACtionShowAnimation;
     public UI_FollowTransform CallToActionFollow;
     public UI_SellMenu SellMenu;
+    public UI_TextValue PriceText;
+    public UI_ShowSizeAnimation PriceAnimation;
 }

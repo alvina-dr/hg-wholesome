@@ -7,8 +7,10 @@ public class UI_TextValue : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textUI;
 
-    public void SetTextValue(string text, bool animation = true)
+    public void SetTextValue(string text, bool animation = true, Color color = default(Color))
     {
+        if (color != default(Color)) _textUI.color = color;
+        
         if (animation)
         {
             Sequence textAnimation = DOTween.Sequence();
