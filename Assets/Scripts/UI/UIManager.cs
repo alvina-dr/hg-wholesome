@@ -9,4 +9,5 @@ public class UIManager : MonoBehaviour
     public UI_SellMenu SellMenu;
     public UI_TextValue PriceText;
     public UI_ShowSizeAnimation PriceAnimation;
+    public UI_UpgradeMenu UpgradeMenu;
 }

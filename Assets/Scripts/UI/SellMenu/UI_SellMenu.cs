@@ -46,6 +46,7 @@ public class UI_SellMenu : MonoBehaviour
         for (int i = 0; i < buttonToSellList.Count; i++)
         {
             GameManager.Instance.Player.PlayerInventory.AddMoney(buttonToSellList[i].ItemEntry.Number * buttonToSellList[i].ItemEntry.Item.Price);
+            GameManager.Instance.UIManager.TextPopperManager.PopText("+" + (buttonToSellList[i].ItemEntry.Number * buttonToSellList[i].ItemEntry.Item.Price).ToString() + "$", buttonToSellList[i].transform.position);
             GameManager.Instance.Player.PlayerInventory.RemoveItem(buttonToSellList[i].ItemEntry);
         }
 

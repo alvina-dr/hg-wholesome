@@ -57,13 +57,13 @@ public class PlayerInventory : MonoBehaviour
     public void AddMoney(int money)
     {
         Money += money; 
-        GameManager.Instance.UIManager.MoneyText.SetTextValue(Money.ToString());
+        GameManager.Instance.UIManager.MoneyText.SetTextValue(Money.ToString() + "$");
     }
 
     public void RemoveMoney(int money)
     {
         Money -= money;
-        GameManager.Instance.UIManager.MoneyText.SetTextValue(Money.ToString());
+        GameManager.Instance.UIManager.MoneyText.SetTextValue(Money.ToString() + "$");
     }
 
     public bool HasItem(ItemEntry itemEntry)
