@@ -11,10 +11,24 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(ItemEntry itemEntry)
     {
-        ItemEntry _inventoryEntry = ItemEntryList.Find(x => x.Item == itemEntry.Item);
-        if (_inventoryEntry != null) 
+        List<ItemEntry> _inventoryEntryList = ItemEntryList.FindAll(x => x.Item == itemEntry.Item);
+        if (_inventoryEntryList.Count > 0 ) 
         {
-            _inventoryEntry.Number += itemEntry.Number;
+            bool addedToExistingEntry = false;
+            for (int i = 0; i < _inventoryEntryList.Count; i++)
+            {
+                if (_inventoryEntryList[i].Number < _inventoryEntryList[i].Item.MaxStack)
+                {
+                    _inventoryEntryList[i].Number += itemEntry.Number;
+                    addedToExistingEntry = true;
+                    break;
+                }
+            }
+
+            if (!addedToExistingEntry)
+            {
+                ItemEntryList.Add(itemEntry);
+            }
         }
         else
         {

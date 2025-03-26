@@ -8,7 +8,6 @@ public class Buyable : Interactable
     public override void Interact()
     {
         base.Interact();
-        Debug.Log("interact with SIGN");
 
         if (GameManager.Instance.Player.PlayerInventory.Money >= Price)
         {
